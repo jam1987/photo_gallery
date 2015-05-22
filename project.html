@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="jquery.bxslider/jquery.bxslider.min.js"> </script>
+	<link href="jquery.bxslider/jquery.bxslider.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<script>
+	$(document).ready(function(){
+     $('#bxslider').bxSlider({
+	     pagerCustom: '#bx-pager'
+	 });
+	
+    });
+    </script>
+
+	
+    
+</head>
+<header>
+<h1>  Intel 2013 Conference Moments </h1>
+</header>
+<body>
+<script>
+ $.getJSON("gallery_json.js", function(result){
+			    var counter = 0;
+				var slider = document.getElementsByClassName("bxslider");
+				
+				
+			    $.each(result, function(key,val) {
+				    if (counter == 1) {
+					  
+						for (var counter1 = 0; counter1 < 6; counter1++) {
+							document.getElementById('img'+counter1).src=val[counter1].image;
+				
+						   
+						}
+						
+						for (var counter1 = 0; counter1 < 6; counter1++) {
+						  document.getElementById('th'+counter1).src=val[counter1].thumb_url;
+						} 
+						
+						
+					   
+					}
+		            counter++;
+				
+			    });
+	
+		    });
+</script>
+ <ul id="bxslider"> 
+ <li><figure><img class="displayed" id ="img0" /><figcaption><h2>Experimental Projects at Intel </br> Taken in Richmond, Virginia on June 17, 2013</h2> </figcaption></figure></li>
+ <li><figure><img class="displayed" id ="img1" /><figcaption><h2>The Keynote Address Surprised Many </br> Taken in Raleigh, North Carolina on June 18, 2013</h2></figcaption><figure></li>
+ <li><figure><img class="displayed" id ="img2" /><figcaption><h2>Jonathan Mathers </br> Taken in Austin, Texas on July 16, 2013</h2></figcaption><figure></li>
+ <li><figure><img class="displayed" id ="img3" /><figcaption><h2>Next Generation Chipsets </br> Taken in New York, New York on August 1, 2013</h2></figcaption><figure></li>
+ <li><figure><img class="displayed" id ="img4" /><figcaption><h2>Operating Systems of the Future </br> Taken in Chicago, Illinois on September 3, 2013</h2></figcaption><figure></li>
+ <li><figure><img class="displayed" id ="img5" /><figcaption><h2>Sponsors of Tomorrow Booth </br> Taken in San Francisco, California on September 14, 2013</h2></figcaption><figure></li>
+
+</ul>
+<div id="bx-pager">
+<a data-slide-index="0" href=""><img id ="th0"></a>
+<a data-slide-index="1" href=""><img id ="th1"></a>
+<a data-slide-index="2" href=""><img id ="th2"></a>
+<a data-slide-index="3" href=""><img id ="th3"></a>
+<a data-slide-index="4" href=""><img id ="th4"></a>
+<a data-slide-index="5" href=""><img id ="th5"></a>
+</div>	
+
+</body>
+<footer>
+</footer>
+</html>
